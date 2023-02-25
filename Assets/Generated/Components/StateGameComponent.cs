@@ -6,10 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using GameState.Component;
-
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
-public sealed class GameStateComponent : Entitas.IComponent {
-    public StateGameComponent value;
+public sealed class StateGameComponent : Entitas.IComponent {
+    public GameState.Component.StateGameComponent value;
 }

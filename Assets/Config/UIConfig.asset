@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rootUIElement: {fileID: 6031892566331426640, guid: 6209ea92b8226ba45ac2f817877b4d74, type: 3}
   _mainMenuPrefab: {fileID: 5066962355739989301, guid: fc39210355599d64f9d3ffe574b60b91, type: 3}
-  _gamePlayMenu: {fileID: 0}
+  _gamePlayMenu: {fileID: 5066962355739989301, guid: fc39210355599d64f9d3ffe574b60b91, type: 3}
