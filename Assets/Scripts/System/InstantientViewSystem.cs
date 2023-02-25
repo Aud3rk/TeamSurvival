@@ -10,6 +10,7 @@ public class InstantientViewSystem : ReactiveSystem<GameEntity>
     public InstantientViewSystem(Contexts contexts) : base(contexts.game)
     {
         _contexts = contexts;
+        contexts.game.dES
     }
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -26,6 +27,7 @@ public class InstantientViewSystem : ReactiveSystem<GameEntity>
     {
         foreach (var entity in entities)
         {
+            entity.Destroy();
             var gameObject = Object.Instantiate(entity.resource.prefab);
             entity.AddView(gameObject);
             gameObject.Link(entity);

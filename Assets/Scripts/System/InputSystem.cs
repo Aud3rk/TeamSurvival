@@ -16,7 +16,6 @@ public class InputSystem : IExecuteSystem
         var vertical = Input.GetAxis("Vertical");
         var lookHor = Input.GetAxis("Mouse X");
         var lookVert = Input.GetAxis("Mouse Y");
-        
         xRotation -= lookVert;
         xRotation = Mathf.Clamp(xRotation, -10, 15f);
         _contexts.game.ReplaceInput(new Vector3(horizontal,0,vertical),new Vector3(xRotation,lookHor,0));

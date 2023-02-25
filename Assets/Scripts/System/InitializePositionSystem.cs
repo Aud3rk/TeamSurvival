@@ -1,33 +1,30 @@
 using System.Collections.Generic;
 using Entitas;
 
-namespace System
+public class InitializePositionSystem : ReactiveSystem<GameEntity>
 {
-    public class InitializePositionSystem : ReactiveSystem<GameEntity>
+    private Contexts _contexts;
+
+    public InitializePositionSystem(Contexts contexts) : base(contexts.game)
     {
-        private Contexts _contexts;
+        _contexts = contexts;
+    }
 
-        public InitializePositionSystem(Contexts contexts) : base(contexts.game)
-        {
-            _contexts = contexts;
-        }
+    protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+    {
+        return context.CreateCollector(GameMatcher.InitalPosition);
+    }
 
-        protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-        {
-            return context.CreateCollector(GameMatcher.InitalPosition);
-        }
+    protected override bool Filter(GameEntity entity)
+    {
+        return entity.hasInitalPosition;
+    }
 
-        protected override bool Filter(GameEntity entity)
+    protected override void Execute(List<GameEntity> entities)
+    {
+        for (var i = 0; i < entities.Count; i++)
         {
-            return entity.hasInitalPosition;
-        }
-
-        protected override void Execute(List<GameEntity> entities)
-        {
-            for (var i = 0; i < entities.Count; i++)
-            {
-                entities[i].view.value.transform.position = entities[i].initalPosition.value;
-            }
+            entities[i].view.value.transform.position = entities[i].initalPosition.value;
         }
     }
 }
