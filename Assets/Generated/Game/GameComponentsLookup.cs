@@ -20,13 +20,14 @@ public static class GameComponentsLookup {
     public const int InitalPosition = 9;
     public const int Input = 10;
     public const int Inventory = 11;
-    public const int Player = 12;
-    public const int Resource = 13;
-    public const int ToDestroy = 14;
-    public const int View = 15;
-    public const int Wood = 16;
+    public const int NavMeshAgent = 12;
+    public const int Player = 13;
+    public const int Resource = 14;
+    public const int ToDestroy = 15;
+    public const int View = 16;
+    public const int Wood = 17;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "ActualTimer",
@@ -41,6 +42,7 @@ public static class GameComponentsLookup {
         "InitalPosition",
         "Input",
         "Inventory",
+        "NavMeshAgent",
         "Player",
         "Resource",
         "ToDestroy",
@@ -61,6 +63,7 @@ public static class GameComponentsLookup {
         typeof(InitalPositionComponent),
         typeof(InputComponent),
         typeof(InventoryComponent),
+        typeof(NavMeshAgentComponent),
         typeof(PlayerComponent),
         typeof(ResourceComponent),
         typeof(ToDestroyComponent),
