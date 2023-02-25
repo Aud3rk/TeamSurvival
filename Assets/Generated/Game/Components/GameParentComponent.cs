@@ -11,17 +11,17 @@ public partial class GameEntity {
     public ParentComponent parent { get { return (ParentComponent)GetComponent(GameComponentsLookup.Parent); } }
     public bool hasParent { get { return HasComponent(GameComponentsLookup.Parent); } }
 
-    public void AddParent(UnityEngine.GameObject newParent) {
+    public void AddParent(UnityEngine.GameObject newGameObject) {
         var index = GameComponentsLookup.Parent;
         var component = (ParentComponent)CreateComponent(index, typeof(ParentComponent));
-        component.gameObject = newParent;
+        component.gameObject = newGameObject;
         AddComponent(index, component);
     }
 
-    public void ReplaceParent(UnityEngine.GameObject newParent) {
+    public void ReplaceParent(UnityEngine.GameObject newGameObject) {
         var index = GameComponentsLookup.Parent;
         var component = (ParentComponent)CreateComponent(index, typeof(ParentComponent));
-        component.gameObject = newParent;
+        component.gameObject = newGameObject;
         ReplaceComponent(index, component);
     }
 

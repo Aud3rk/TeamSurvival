@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly UI.Component.RootComponent uIComponentRootComponent = new UI.Component.RootComponent();
+    static readonly UI.Component.UIRootComponent uIRootComponent = new UI.Component.UIRootComponent();
 
-    public bool isUIComponentRoot {
-        get { return HasComponent(GameComponentsLookup.UIComponentRoot); }
+    public bool isUIRoot {
+        get { return HasComponent(GameComponentsLookup.UIRoot); }
         set {
-            if (value != isUIComponentRoot) {
-                var index = GameComponentsLookup.UIComponentRoot;
+            if (value != isUIRoot) {
+                var index = GameComponentsLookup.UIRoot;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : uIComponentRootComponent;
+                            : uIRootComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherUIComponentRoot;
+    static Entitas.IMatcher<GameEntity> _matcherUIRoot;
 
-    public static Entitas.IMatcher<GameEntity> UIComponentRoot {
+    public static Entitas.IMatcher<GameEntity> UIRoot {
         get {
-            if (_matcherUIComponentRoot == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.UIComponentRoot);
+            if (_matcherUIRoot == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.UIRoot);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherUIComponentRoot = matcher;
+                _matcherUIRoot = matcher;
             }
 
-            return _matcherUIComponentRoot;
+            return _matcherUIRoot;
         }
     }
 }

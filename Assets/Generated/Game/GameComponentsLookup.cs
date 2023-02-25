@@ -25,8 +25,8 @@ public static class GameComponentsLookup {
     public const int Resource = 14;
     public const int StateGame = 15;
     public const int ToDestroy = 16;
-    public const int UIComponentFlag = 17;
-    public const int UIComponentRoot = 18;
+    public const int UIFlag = 17;
+    public const int UIRoot = 18;
     public const int UIConfig = 19;
     public const int View = 20;
     public const int Wood = 21;
@@ -51,8 +51,8 @@ public static class GameComponentsLookup {
         "Resource",
         "StateGame",
         "ToDestroy",
-        "UIComponentFlag",
-        "UIComponentRoot",
+        "UIFlag",
+        "UIRoot",
         "UIConfig",
         "View",
         "Wood"
@@ -76,8 +76,8 @@ public static class GameComponentsLookup {
         typeof(ResourceComponent),
         typeof(StateGameComponent),
         typeof(ToDestroyComponent),
-        typeof(UI.Component.FlagComponent),
-        typeof(UI.Component.RootComponent),
+        typeof(UI.Component.UIFlagComponent),
+        typeof(UI.Component.UIRootComponent),
         typeof(UIConfigComponent),
         typeof(ViewComponent),
         typeof(WoodComponent)

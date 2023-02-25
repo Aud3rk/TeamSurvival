@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly UI.Component.FlagComponent uIComponentFlagComponent = new UI.Component.FlagComponent();
+    static readonly UI.Component.UIFlagComponent uIFlagComponent = new UI.Component.UIFlagComponent();
 
-    public bool isUIComponentFlag {
-        get { return HasComponent(GameComponentsLookup.UIComponentFlag); }
+    public bool isUIFlag {
+        get { return HasComponent(GameComponentsLookup.UIFlag); }
         set {
-            if (value != isUIComponentFlag) {
-                var index = GameComponentsLookup.UIComponentFlag;
+            if (value != isUIFlag) {
+                var index = GameComponentsLookup.UIFlag;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : uIComponentFlagComponent;
+                            : uIFlagComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherUIComponentFlag;
+    static Entitas.IMatcher<GameEntity> _matcherUIFlag;
 
-    public static Entitas.IMatcher<GameEntity> UIComponentFlag {
+    public static Entitas.IMatcher<GameEntity> UIFlag {
         get {
-            if (_matcherUIComponentFlag == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.UIComponentFlag);
+            if (_matcherUIFlag == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.UIFlag);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherUIComponentFlag = matcher;
+                _matcherUIFlag = matcher;
             }
 
-            return _matcherUIComponentFlag;
+            return _matcherUIFlag;
         }
     }
 }
