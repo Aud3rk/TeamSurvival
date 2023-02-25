@@ -29,6 +29,7 @@ public class DamageProviderSystem : ReactiveSystem<GameEntity>
             var damage = entity.damage.damage;
             var damageReceiverIndex = _contexts.game.GetEntitiesWithView(damageReceiver).SingleEntity();
             damageReceiverIndex.health.health -= damage;
+            entity.Destroy();
         }
     }
    

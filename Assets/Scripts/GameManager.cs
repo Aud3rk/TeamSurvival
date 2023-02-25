@@ -29,11 +29,19 @@ public class GameManager : MonoBehaviour
     {
         return new Feature("Game")
             .Add(new HelloWorldSystem())
-            .Add(new InitializePlayerSystem(contexts))
             .Add(new InstantientViewSystem(contexts))
+            .Add(new InitializePlayerSystem(contexts))
             .Add(new InputSystem(contexts))
             .Add(new MoveSystem(contexts))
             .Add(new DamageProviderSystem(contexts))
+            .Add(new InitializeBonfireSystem(contexts))
+            .Add(new BuriningSystem(contexts))
+            .Add(new InitializeWoodSystem(contexts))
+            .Add(new AddingWoodToBonfireSystem(contexts))
+            .Add(new TakeItemSystem(contexts))
+            .Add(new DestroySystem(contexts))
+            .Add(new DropWoodSystem(contexts))
+            .Add(new BurningWoodSystem(contexts))
         ;
     }
 }

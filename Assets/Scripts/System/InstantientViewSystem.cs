@@ -34,6 +34,11 @@ public class InstantientViewSystem : ReactiveSystem<GameEntity>
             {
                 gameObject.transform.position = entity.initalPosition.value;
             }
+            if (entity.hasForce)
+            {
+                var rb = gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(entity.force.direction*entity.force.force,ForceMode.Impulse);
+            }
         }
     }
 }

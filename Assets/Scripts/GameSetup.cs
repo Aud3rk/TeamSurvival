@@ -8,6 +8,8 @@ using UnityEngine;
 public class GameSetup : ScriptableObject
 {
     public GameObject player;
+    public GameObject bonFire;
+    public GameObject wood;
     public float speed=10f;
     public float sensivityX = 2f;
     public float sensivityY = 5f;

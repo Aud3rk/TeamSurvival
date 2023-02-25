@@ -8,39 +8,63 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Damage = 0;
-    public const int GameSetup = 1;
-    public const int Health = 2;
-    public const int InitalPosition = 3;
-    public const int Input = 4;
-    public const int Player = 5;
-    public const int PlayerLook = 6;
-    public const int Resource = 7;
-    public const int View = 8;
+    public const int ActualTimer = 0;
+    public const int AddingSeconds = 1;
+    public const int Apple = 2;
+    public const int Bonfire = 3;
+    public const int BurnedWood = 4;
+    public const int Damage = 5;
+    public const int Force = 6;
+    public const int GameSetup = 7;
+    public const int Health = 8;
+    public const int InitalPosition = 9;
+    public const int Input = 10;
+    public const int Inventory = 11;
+    public const int Player = 12;
+    public const int Resource = 13;
+    public const int ToDestroy = 14;
+    public const int View = 15;
+    public const int Wood = 16;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
+        "ActualTimer",
+        "AddingSeconds",
+        "Apple",
+        "Bonfire",
+        "BurnedWood",
         "Damage",
+        "Force",
         "GameSetup",
         "Health",
         "InitalPosition",
         "Input",
+        "Inventory",
         "Player",
-        "PlayerLook",
         "Resource",
-        "View"
+        "ToDestroy",
+        "View",
+        "Wood"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(ActualTimerComponent),
+        typeof(AddingSecondsComponent),
+        typeof(AppleComponent),
+        typeof(BonfireComponent),
+        typeof(BurnedWoodComponent),
         typeof(DamageComponent),
+        typeof(ForceComponent),
         typeof(GameSetupComponent),
         typeof(HealthComponent),
         typeof(InitalPositionComponent),
         typeof(InputComponent),
+        typeof(InventoryComponent),
         typeof(PlayerComponent),
-        typeof(PlayerLookComponent),
         typeof(ResourceComponent),
-        typeof(ViewComponent)
+        typeof(ToDestroyComponent),
+        typeof(ViewComponent),
+        typeof(WoodComponent)
     };
 }

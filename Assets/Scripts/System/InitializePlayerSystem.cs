@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
@@ -15,7 +13,9 @@ public class InitializePlayerSystem : IInitializeSystem
         var entity = _contexts.game.CreateEntity();
         entity.isPlayer = true;
         entity.AddResource(_contexts.game.gameSetup.value.player);
-        entity.AddInitalPosition(Vector3.zero);
+        entity.AddInitalPosition(new Vector3(10,10,10));
         entity.AddHealth(100);
+        entity.AddInventory(0,0);
+        
     }
 }
