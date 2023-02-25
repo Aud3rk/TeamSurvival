@@ -4,7 +4,7 @@ using Entitas;
 
 namespace GameState.System
 {
-    //Реаигируем на событие и смегяем сцены
+    //Сменяет состояния игры. т.е удаляет объекты из мира, когда мы заходим в меню и наоборот
     public class GameFlowSystem : ReactiveSystem<GameEntity>
     {
         public GameFlowSystem(IContext<GameEntity> context) : base(context)

@@ -19,8 +19,8 @@ namespace UI.System
         public void Initialize()
         {
             CreateUIRoot(_contexts.game.uIConfig.value.RootUIElement);
-            AddNewEntity(_contexts.game.uIConfig.value.GamePlayMenu);
-            AddNewEntity(_contexts.game.uIConfig.value.MainMenuPrefab);
+            AddNewUIEntity(_contexts.game.uIConfig.value.GamePlayMenu);
+            AddNewUIEntity(_contexts.game.uIConfig.value.MainMenuPrefab);
         }
 
         private void CreateUIRoot(GameObject rootPrefab)
@@ -29,10 +29,13 @@ namespace UI.System
             _rootObject = Object.Instantiate(rootPrefab);
             gameEntity.AddView(_rootObject);
             gameEntity.isUIRoot = true;
+            
+            _rootObject.SetActive(false);//Activate when ui will work
         }
 
-        private void AddNewEntity(GameObject prefab)
+        private void AddNewUIEntity(GameObject prefab)
         {
+            //In Good time we should create ui Context and work with it 
             GameEntity gameEntity = _contexts.game.CreateEntity();
             gameEntity.AddResource(prefab);
             gameEntity.AddParent(_rootObject);
