@@ -16,17 +16,18 @@ public static class GameComponentsLookup {
     public const int Damage = 5;
     public const int Force = 6;
     public const int GameSetup = 7;
-    public const int Health = 8;
-    public const int InitalPosition = 9;
-    public const int Input = 10;
-    public const int Inventory = 11;
-    public const int Player = 12;
-    public const int Resource = 13;
-    public const int ToDestroy = 14;
-    public const int View = 15;
-    public const int Wood = 16;
+    public const int GameState = 8;
+    public const int Health = 9;
+    public const int InitalPosition = 10;
+    public const int Input = 11;
+    public const int Inventory = 12;
+    public const int Player = 13;
+    public const int Resource = 14;
+    public const int ToDestroy = 15;
+    public const int View = 16;
+    public const int Wood = 17;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "ActualTimer",
@@ -37,6 +38,7 @@ public static class GameComponentsLookup {
         "Damage",
         "Force",
         "GameSetup",
+        "GameState",
         "Health",
         "InitalPosition",
         "Input",
@@ -57,6 +59,7 @@ public static class GameComponentsLookup {
         typeof(DamageComponent),
         typeof(ForceComponent),
         typeof(GameSetupComponent),
+        typeof(GameStateComponent),
         typeof(HealthComponent),
         typeof(InitalPositionComponent),
         typeof(InputComponent),
