@@ -25,7 +25,7 @@ public class BurningWoodSystem : ReactiveSystem<GameEntity>
     {
         foreach (var entity in entities)
         {
-            var gameObject = entity.burnedWood.wood;
+            GameObject gameObject = entity.burnedWood.wood;
             var woodEntity = _contexts.game.GetEntitiesWithView(gameObject).SingleEntity();
             woodEntity.isToDestroy = true;
             var bonfire = _contexts.game.bonfireEntity;

@@ -20,13 +20,18 @@ public static class GameComponentsLookup {
     public const int InitalPosition = 9;
     public const int Input = 10;
     public const int Inventory = 11;
-    public const int Player = 12;
-    public const int Resource = 13;
-    public const int ToDestroy = 14;
-    public const int View = 15;
-    public const int Wood = 16;
+    public const int Parent = 12;
+    public const int Player = 13;
+    public const int Resource = 14;
+    public const int StateGame = 15;
+    public const int ToDestroy = 16;
+    public const int UIFlag = 17;
+    public const int UIRoot = 18;
+    public const int UIConfig = 19;
+    public const int View = 20;
+    public const int Wood = 21;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "ActualTimer",
@@ -41,9 +46,14 @@ public static class GameComponentsLookup {
         "InitalPosition",
         "Input",
         "Inventory",
+        "Parent",
         "Player",
         "Resource",
+        "StateGame",
         "ToDestroy",
+        "UIFlag",
+        "UIRoot",
+        "UIConfig",
         "View",
         "Wood"
     };
@@ -61,9 +71,14 @@ public static class GameComponentsLookup {
         typeof(InitalPositionComponent),
         typeof(InputComponent),
         typeof(InventoryComponent),
+        typeof(ParentComponent),
         typeof(PlayerComponent),
         typeof(ResourceComponent),
+        typeof(StateGameComponent),
         typeof(ToDestroyComponent),
+        typeof(UI.Component.UIFlagComponent),
+        typeof(UI.Component.UIRootComponent),
+        typeof(UIConfigComponent),
         typeof(ViewComponent),
         typeof(WoodComponent)
     };

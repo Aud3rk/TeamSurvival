@@ -29,10 +29,9 @@ public class InstantientViewSystem : ReactiveSystem<GameEntity>
             var gameObject = Object.Instantiate(entity.resource.prefab);
             entity.AddView(gameObject);
             gameObject.Link(entity);
-
-            if (entity.hasInitalPosition)
+            if (entity.hasParent)
             {
-                gameObject.transform.position = entity.initalPosition.value;
+                gameObject.transform.SetParent(entity.parent.gameObject.transform);
             }
             if (entity.hasForce)
             {
