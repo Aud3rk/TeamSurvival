@@ -23,12 +23,14 @@ public partial class Contexts : Entitas.IContexts {
 
     public GameContext game { get; set; }
     public InputContext input { get; set; }
+    public UiContext ui { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, input }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, input, ui }; } }
 
     public Contexts() {
         game = new GameContext();
         input = new InputContext();
+        ui = new UiContext();
 
         var postConstructors = System.Linq.Enumerable.Where(
             GetType().GetMethods(),
@@ -66,6 +68,10 @@ public partial class Contexts {
             View,
             game.GetGroup(GameMatcher.View),
             (e, c) => ((ViewComponent)c).value));
+        ui.AddEntityIndex(new Entitas.EntityIndex<UiEntity, UnityEngine.GameObject>(
+            View,
+            ui.GetGroup(UiMatcher.View),
+            (e, c) => ((ViewComponent)c).value));
     }
 }
 
@@ -73,6 +79,10 @@ public static class ContextsExtensions {
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithView(this GameContext context, UnityEngine.GameObject value) {
         return ((Entitas.EntityIndex<GameEntity, UnityEngine.GameObject>)context.GetEntityIndex(Contexts.View)).GetEntities(value);
+    }
+
+    public static System.Collections.Generic.HashSet<UiEntity> GetEntitiesWithView(this UiContext context, UnityEngine.GameObject value) {
+        return ((Entitas.EntityIndex<UiEntity, UnityEngine.GameObject>)context.GetEntityIndex(Contexts.View)).GetEntities(value);
     }
 }
 //------------------------------------------------------------------------------
@@ -92,6 +102,7 @@ public partial class Contexts {
         try {
             CreateContextObserver(game);
             CreateContextObserver(input);
+            CreateContextObserver(ui);
         } catch(System.Exception) {
         }
     }

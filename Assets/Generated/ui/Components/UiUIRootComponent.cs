@@ -6,20 +6,20 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class UiEntity {
 
-    static readonly UI.Component.UIFlagComponent uIFlagComponent = new UI.Component.UIFlagComponent();
+    static readonly UI.Component.UIRootComponent uIRootComponent = new UI.Component.UIRootComponent();
 
-    public bool isUIFlag {
-        get { return HasComponent(GameComponentsLookup.UIFlag); }
+    public bool isUIRoot {
+        get { return HasComponent(UiComponentsLookup.UIRoot); }
         set {
-            if (value != isUIFlag) {
-                var index = GameComponentsLookup.UIFlag;
+            if (value != isUIRoot) {
+                var index = UiComponentsLookup.UIRoot;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : uIFlagComponent;
+                            : uIRootComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -38,19 +38,19 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class UiMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherUIFlag;
+    static Entitas.IMatcher<UiEntity> _matcherUIRoot;
 
-    public static Entitas.IMatcher<GameEntity> UIFlag {
+    public static Entitas.IMatcher<UiEntity> UIRoot {
         get {
-            if (_matcherUIFlag == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.UIFlag);
-                matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherUIFlag = matcher;
+            if (_matcherUIRoot == null) {
+                var matcher = (Entitas.Matcher<UiEntity>)Entitas.Matcher<UiEntity>.AllOf(UiComponentsLookup.UIRoot);
+                matcher.componentNames = UiComponentsLookup.componentNames;
+                _matcherUIRoot = matcher;
             }
 
-            return _matcherUIFlag;
+            return _matcherUIRoot;
         }
     }
 }

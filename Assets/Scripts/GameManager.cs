@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
     {
         return new Feature("Game")
             .Add(new InitializeUISystem(contexts))
-            .Add(new InstantientViewSystem(contexts))
+            .Add(new InstantiateUISystem(contexts))
+            .Add(new InstantiateViewSystem(contexts))
             .Add(new InitializePlayerSystem(contexts))
             .Add(new InitializePositionSystem(contexts))
             .Add(new InputSystem(contexts))
@@ -50,7 +51,6 @@ public class GameManager : MonoBehaviour
             .Add(new BurningWoodSystem(contexts))
             .Add(new InitializeAppleSystem(contexts))
             .Add(new InitializeTreeSystem(contexts))
-            .Add(new PlayerAttackSystem(contexts))
-            ;
+            .Add(new PlayerAttackSystem(contexts));
     }
 }

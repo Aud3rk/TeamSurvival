@@ -2,7 +2,7 @@ using Entitas;
 
 namespace UI.Component
 {
-    [Game]
+    [Ui]
     public class UIRootComponent : IComponent
     {
     }
