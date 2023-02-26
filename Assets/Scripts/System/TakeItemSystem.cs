@@ -4,6 +4,7 @@ using UnityEngine;
 public class TakeItemSystem : IExecuteSystem
 {
     private Contexts _contexts;
+    private string RESOURCE_TAG = "Resource";
     public TakeItemSystem(Contexts contexts)
     {
         _contexts = contexts;
@@ -17,12 +18,13 @@ public class TakeItemSystem : IExecuteSystem
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100))
             {
-                if (hit.transform.gameObject.CompareTag("Resource"))
+                if (hit.transform.gameObject.CompareTag(RESOURCE_TAG))
                 {
                     var entityGameObject = hit.transform.gameObject;
                     var entity = _contexts.game.GetEntitiesWithView(entityGameObject).SingleEntity();
                     if(entity.isWood)
-                    {_contexts.game.playerEntity.ReplaceInventory(_contexts.game.playerEntity.inventory.woodCount+1,
+                    {
+                        _contexts.game.playerEntity.ReplaceInventory(_contexts.game.playerEntity.inventory.woodCount+1,
                         _contexts.game.playerEntity.inventory.appleCount);}
                     else 
                         _contexts.game.playerEntity.ReplaceInventory(_contexts.game.playerEntity.inventory.woodCount,

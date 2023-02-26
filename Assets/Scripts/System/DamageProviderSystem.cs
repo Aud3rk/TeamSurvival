@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DamageProviderSystem : ReactiveSystem<GameEntity>
 {
-    
     private Contexts _contexts;
     public DamageProviderSystem(Contexts contexts) : base(contexts.game)
     {
@@ -29,6 +28,20 @@ public class DamageProviderSystem : ReactiveSystem<GameEntity>
             var damage = entity.damage.damage;
             var damageReceiverIndex = _contexts.game.GetEntitiesWithView(damageReceiver).SingleEntity();
             damageReceiverIndex.health.health -= damage;
+            if (damageReceiverIndex.health.health <= 0)
+            {
+                if (damageReceiverIndex.hasDropLoot)
+                {
+                    if (damageReceiverIndex.isTree)
+                    {
+                        var wood = _contexts.game.CreateEntity();
+                        wood.AddResource(_contexts.game.gameSetup.value.wood);
+                        wood.isWood = true;
+                        wood.AddInitalPosition(damageReceiver.transform.position);
+                    }
+                }
+                damageReceiverIndex.isToDestroy = true;
+            }
             entity.Destroy();
         }
     }

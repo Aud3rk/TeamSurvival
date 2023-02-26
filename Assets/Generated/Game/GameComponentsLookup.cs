@@ -14,24 +14,26 @@ public static class GameComponentsLookup {
     public const int Bonfire = 3;
     public const int BurnedWood = 4;
     public const int Damage = 5;
-    public const int Force = 6;
-    public const int GameSetup = 7;
-    public const int Health = 8;
-    public const int InitalPosition = 9;
-    public const int Input = 10;
-    public const int Inventory = 11;
-    public const int Parent = 12;
-    public const int Player = 13;
-    public const int Resource = 14;
-    public const int StateGame = 15;
-    public const int ToDestroy = 16;
-    public const int UIFlag = 17;
-    public const int UIRoot = 18;
-    public const int UIConfig = 19;
-    public const int View = 20;
-    public const int Wood = 21;
+    public const int DropLoot = 6;
+    public const int Force = 7;
+    public const int GameSetup = 8;
+    public const int Health = 9;
+    public const int InitalPosition = 10;
+    public const int Input = 11;
+    public const int Inventory = 12;
+    public const int Parent = 13;
+    public const int Player = 14;
+    public const int Resource = 15;
+    public const int StateGame = 16;
+    public const int ToDestroy = 17;
+    public const int Tree = 18;
+    public const int UIFlag = 19;
+    public const int UIRoot = 20;
+    public const int UIConfig = 21;
+    public const int View = 22;
+    public const int Wood = 23;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
         "ActualTimer",
@@ -40,6 +42,7 @@ public static class GameComponentsLookup {
         "Bonfire",
         "BurnedWood",
         "Damage",
+        "DropLoot",
         "Force",
         "GameSetup",
         "Health",
@@ -51,6 +54,7 @@ public static class GameComponentsLookup {
         "Resource",
         "StateGame",
         "ToDestroy",
+        "Tree",
         "UIFlag",
         "UIRoot",
         "UIConfig",
@@ -65,6 +69,7 @@ public static class GameComponentsLookup {
         typeof(BonfireComponent),
         typeof(BurnedWoodComponent),
         typeof(DamageComponent),
+        typeof(DropLootComponent),
         typeof(ForceComponent),
         typeof(GameSetupComponent),
         typeof(HealthComponent),
@@ -76,6 +81,7 @@ public static class GameComponentsLookup {
         typeof(ResourceComponent),
         typeof(StateGameComponent),
         typeof(ToDestroyComponent),
+        typeof(TreeComponent),
         typeof(UI.Component.UIFlagComponent),
         typeof(UI.Component.UIRootComponent),
         typeof(UIConfigComponent),
