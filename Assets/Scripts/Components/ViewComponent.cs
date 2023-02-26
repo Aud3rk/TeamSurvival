@@ -2,7 +2,7 @@ using UnityEngine;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-[Game]
+[Game, Ui]
 public class ViewComponent : IComponent
 {
    [EntityIndex]

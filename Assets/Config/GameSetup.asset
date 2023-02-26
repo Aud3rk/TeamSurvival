@@ -16,7 +16,7 @@ MonoBehaviour:
   bonFire: {fileID: 7540191481854537095, guid: 7f23351d8d3b6aa4db8a3d49e923ad49, type: 3}
   wood: {fileID: 5520821824965193108, guid: f1d68920a65cadb459d40c082b54469a, type: 3}
   apple: {fileID: 4625656852305415677, guid: 4cb195d5309e74b4484872a1988a7fe6, type: 3}
-  tree: {fileID: 0}
+  tree: {fileID: 4520481951984198031, guid: 066ab65e7b23f004381412db828bf02d, type: 3}
   speed: 10
   sensivityX: 2
   sensivityY: 5

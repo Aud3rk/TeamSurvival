@@ -1,4 +1,5 @@
 using Entitas;
+using Entitas.Unity;
 using UnityEngine;
 
 namespace UI.System
@@ -25,21 +26,19 @@ namespace UI.System
 
         private void CreateUIRoot(GameObject rootPrefab)
         {
-            GameEntity gameEntity = _contexts.game.CreateEntity();
+            UiEntity uiEntity = _contexts.ui.CreateEntity();
             _rootObject = Object.Instantiate(rootPrefab);
-            gameEntity.AddView(_rootObject);
-            gameEntity.isUIRoot = true;
-            
+            uiEntity.AddView(_rootObject);
+            _rootObject.Link(uiEntity);
+            uiEntity.isUIRoot = true;
             _rootObject.SetActive(false);//Activate when ui will work
         }
 
         private void AddNewUIEntity(GameObject prefab)
         {
-            //In Good time we should create ui Context and work with it 
-            GameEntity gameEntity = _contexts.game.CreateEntity();
-            gameEntity.AddResource(prefab);
-            gameEntity.AddParent(_rootObject);
-            gameEntity.isUIFlag = true;
+            UiEntity uiEntity  = _contexts.ui.CreateEntity();
+            uiEntity.AddResource(prefab);
+            uiEntity.AddParent(_rootObject);
         }
     }
 }

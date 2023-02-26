@@ -1,6 +1,6 @@
 using Entitas;
 using UnityEngine;
-[Game]
+[Game, Ui]
 public class ResourceComponent : IComponent
 {
     public GameObject prefab;

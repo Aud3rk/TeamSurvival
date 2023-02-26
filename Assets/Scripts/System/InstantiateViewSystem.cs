@@ -4,10 +4,10 @@ using Entitas;
 using Entitas.Unity;
 using Unity.VisualScripting;
 
-public class InstantientViewSystem : ReactiveSystem<GameEntity>
+public class InstantiateViewSystem : ReactiveSystem<GameEntity>
 {
     private Contexts _contexts;
-    public InstantientViewSystem(Contexts contexts) : base(contexts.game)
+    public InstantiateViewSystem(Contexts contexts) : base(contexts.game)
     {
         _contexts = contexts;
     }
