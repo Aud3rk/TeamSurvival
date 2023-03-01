@@ -8,6 +8,7 @@ using UnityEngine;
 public class GameSetup : ScriptableObject
 {
     public GameObject player;
+    public GameObject enemy;
     public GameObject bonFire;
     public GameObject wood;
     public GameObject apple;
