@@ -13,7 +13,7 @@ public class InitializeTreeSystem : IInitializeSystem
         var entity = _contexts.game.CreateEntity();
         entity.AddResource(_contexts.game.gameSetup.value.tree);
         entity.isTree = true;
-        entity.AddHealth(10);
+        entity.AddHealth(10,100);
         entity.AddInitalPosition(Vector3.zero);
         entity.AddDropLoot(Loot.wood);
     }

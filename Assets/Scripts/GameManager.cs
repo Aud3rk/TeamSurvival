@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour
             .Add(new BurningWoodSystem(contexts))
             .Add(new InitializeAppleSystem(contexts))
             .Add(new InitializeTreeSystem(contexts))
-            .Add(new PlayerAttackSystem(contexts));
+            .Add(new PlayerAttackSystem(contexts))
+            .Add(new HealthProviderSystem(contexts))
+            .Add(new AppleEatSystem(contexts))
+            ;
     }
 }

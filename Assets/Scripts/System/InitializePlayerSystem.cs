@@ -14,7 +14,7 @@ public class InitializePlayerSystem : IInitializeSystem
         entity.isPlayer = true;
         entity.AddResource(_contexts.game.gameSetup.value.player);
         entity.AddInitalPosition(new Vector3(10,10,10));
-        entity.AddHealth(100);
+        entity.AddHealth(100,100);
         entity.AddInventory(0,0);
         
     }

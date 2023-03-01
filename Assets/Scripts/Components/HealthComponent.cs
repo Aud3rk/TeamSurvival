@@ -3,5 +3,7 @@ using UnityEngine;
 
 public class HealthComponent : IComponent
 {
-    public float health;
+    public float healthCurrent;
+    public float healthMax;
+
 }

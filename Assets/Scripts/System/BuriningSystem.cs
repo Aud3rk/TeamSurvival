@@ -19,7 +19,6 @@ public class BuriningSystem : IExecuteSystem
         burningTime -= Time.deltaTime;
         if (burningTime <= 0)
         {
-            Debug.Log("Huy");
         }
         _contexts.game.bonfireEntity.ReplaceActualTimer(burningTime);
     }

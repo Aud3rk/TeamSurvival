@@ -13,7 +13,6 @@ public class DropWoodSystem : IExecuteSystem
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Debug.Log("Drop");
             var woodCount = _contexts.game.playerEntity.inventory.woodCount;
             if (woodCount > 0)
             {

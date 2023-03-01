@@ -27,8 +27,8 @@ public class DamageProviderSystem : ReactiveSystem<GameEntity>
             var damageReceiver = entity.damage.damageReceiver;
             var damage = entity.damage.damage;
             var damageReceiverIndex = _contexts.game.GetEntitiesWithView(damageReceiver).SingleEntity();
-            damageReceiverIndex.health.health -= damage;
-            if (damageReceiverIndex.health.health <= 0)
+            damageReceiverIndex.health.healthCurrent -= damage;
+            if (damageReceiverIndex.health.healthCurrent <= 0)
             {
                 if (damageReceiverIndex.hasDropLoot)
                 {
