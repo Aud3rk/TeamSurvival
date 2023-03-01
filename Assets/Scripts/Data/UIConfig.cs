@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Data
 {
     [CreateAssetMenu]
-    [Game, Unique]
+    [ApplicationSurvive, Unique]
     public class UIConfig : ScriptableObject
     {
         [SerializeField] private GameObject _rootUIElement;

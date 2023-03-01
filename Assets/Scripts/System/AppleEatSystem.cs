@@ -20,7 +20,7 @@ public class AppleEatSystem : IExecuteSystem
                 appleCount--;
                 var enity = _contexts.game.CreateEntity();
                 enity.AddHeal(_contexts.game.playerEntity,10);
-                var appleAnim =Object.Instantiate(_contexts.game.gameSetup.value.appleForAntimation,_contexts.game.playerEntity.view.value.transform);
+                var appleAnim =Object.Instantiate(_contexts.applicationSurvive.gameSetup.value.appleForAntimation,_contexts.game.playerEntity.view.value.transform);
                 Object.Destroy(appleAnim,1f);
                 _contexts.game.playerEntity.ReplaceInventory(_contexts.game.playerEntity.inventory.woodCount,appleCount);
                 

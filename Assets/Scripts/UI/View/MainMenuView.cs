@@ -1,9 +1,10 @@
+using GameState.Component;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.View
 {
-      public class MainMenuView : MonoBehaviour
+    public class MainMenuView : MonoBehaviour
     {
         [SerializeField] private Button _startGameButton;
         [SerializeField] private Button _continueGameButton;
@@ -18,17 +19,17 @@ namespace UI.View
 
         private void OnExitButtonClick()
         {
-            
         }
 
         private void OnContinueGameClick()
         {
-            
         }
 
         private void OnStartGameClick()
         {
-            
+            var applicationSurviveEntity = Contexts.sharedInstance.applicationSurvive.CreateEntity();
+            Contexts.sharedInstance.applicationSurvive.stateGame.value.gameState = GameStateType.Game;
+            applicationSurviveEntity.AddChangeState(true);
         }
     }
 }

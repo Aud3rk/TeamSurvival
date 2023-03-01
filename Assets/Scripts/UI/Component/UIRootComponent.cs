@@ -2,7 +2,7 @@ using Entitas;
 
 namespace UI.Component
 {
-    [Ui]
+    [ApplicationSurvive]
     public class UIRootComponent : IComponent
     {
     }

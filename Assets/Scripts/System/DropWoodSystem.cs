@@ -18,7 +18,7 @@ public class DropWoodSystem : IExecuteSystem
             {
                 woodCount--;
                 var entity = _contexts.game.CreateEntity();
-                entity.AddResource(_contexts.game.gameSetup.value.wood);
+                entity.AddResource(_contexts.applicationSurvive.gameSetup.value.wood);
                 entity.AddInitalPosition(_contexts.game.playerEntity.view.value.transform.localPosition +
                                          _contexts.game.playerEntity.view.value.transform.forward);
                 entity.AddForce(_contexts.game.playerEntity.view.value.transform.forward.normalized, 5);

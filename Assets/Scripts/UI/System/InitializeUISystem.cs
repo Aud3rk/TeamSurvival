@@ -19,24 +19,23 @@ namespace UI.System
 
         public void Initialize()
         {
-            CreateUIRoot(_contexts.game.uIConfig.value.RootUIElement);
-            AddNewUIEntity(_contexts.game.uIConfig.value.GamePlayMenu);
-            AddNewUIEntity(_contexts.game.uIConfig.value.MainMenuPrefab);
+            CreateUIRoot(_contexts.applicationSurvive.uIConfig.value.RootUIElement);
+            AddNewUIEntity(_contexts.applicationSurvive.uIConfig.value.GamePlayMenu);
+            AddNewUIEntity(_contexts.applicationSurvive.uIConfig.value.MainMenuPrefab);
         }
 
         private void CreateUIRoot(GameObject rootPrefab)
         {
-            UiEntity uiEntity = _contexts.ui.CreateEntity();
+            ApplicationSurviveEntity uiEntity = _contexts.applicationSurvive.CreateEntity();
             _rootObject = Object.Instantiate(rootPrefab);
             uiEntity.AddView(_rootObject);
             _rootObject.Link(uiEntity);
-            uiEntity.isUIRoot = true;
-            _rootObject.SetActive(false);//Activate when ui will work
+            _rootObject.SetActive(true);//Activate when ui will work
         }
 
         private void AddNewUIEntity(GameObject prefab)
         {
-            UiEntity uiEntity  = _contexts.ui.CreateEntity();
+            ApplicationSurviveEntity uiEntity  = _contexts.applicationSurvive.CreateEntity();
             uiEntity.AddResource(prefab);
             uiEntity.AddParent(_rootObject);
         }

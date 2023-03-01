@@ -2,7 +2,7 @@ using Entitas.CodeGeneration.Attributes;
 
 namespace GameState.Component
 {
-    [Game, Unique]
+    [ApplicationSurvive, Unique]
     public class StateGameComponent
     {
         public GameStateType gameState;

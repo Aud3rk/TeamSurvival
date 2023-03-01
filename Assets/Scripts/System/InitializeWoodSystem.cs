@@ -12,7 +12,7 @@ public class InitializeWoodSystem : IInitializeSystem
     public void Initialize()
     {
         var entity = _contexts.game.CreateEntity();
-        entity.AddResource(_contexts.game.gameSetup.value.wood);
+        entity.AddResource(_contexts.applicationSurvive.gameSetup.value.wood);
         entity.isWood = true;
         entity.AddInitalPosition(new Vector3(2,2,2));
     }

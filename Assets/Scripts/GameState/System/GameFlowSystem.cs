@@ -1,33 +1,50 @@
 using System;
 using System.Collections.Generic;
 using Entitas;
+using GameState.Component;
 
 namespace GameState.System
 {
     //Сменяет состояния игры. т.е удаляет объекты из мира, когда мы заходим в меню и наоборот
-    public class GameFlowSystem : ReactiveSystem<GameEntity>
+    public class GameFlowSystem : ReactiveSystem<ApplicationSurviveEntity>
     {
-        public GameFlowSystem(IContext<GameEntity> context) : base(context)
+        private Contexts _contexts;
+
+        public GameFlowSystem(Contexts contexts) : base(contexts.applicationSurvive)
         {
+            _contexts = contexts;
         }
 
-        public GameFlowSystem(ICollector<GameEntity> collector) : base(collector)
+
+        protected override ICollector<ApplicationSurviveEntity> GetTrigger(IContext<ApplicationSurviveEntity> context)
         {
+            return context.CreateCollector(ApplicationSurviveMatcher.ChangeState);
         }
 
-        protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+        protected override bool Filter(ApplicationSurviveEntity entity)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        protected override bool Filter(GameEntity entity)
+        protected override void Execute(List<ApplicationSurviveEntity> entities)
         {
-            throw new NotImplementedException();
+            if (_contexts.applicationSurvive.stateGame.value.gameState == GameStateType.Game)
+            {
+                CreateGame();
+            }
+            else
+            {
+                GoToMenu();
+            }
         }
 
-        protected override void Execute(List<GameEntity> entities)
+        private void GoToMenu()
         {
-            throw new NotImplementedException();
+            _contexts.game.DestroyAllEntities();
+        }
+
+        private void CreateGame()
+        {
         }
     }
 }
