@@ -60,10 +60,16 @@ public partial class Contexts : Entitas.IContexts {
 //------------------------------------------------------------------------------
 public partial class Contexts {
 
+    public const string UIDialogName = "UIDialogName";
     public const string View = "View";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
+        applicationSurvive.AddEntityIndex(new Entitas.EntityIndex<ApplicationSurviveEntity, string>(
+            UIDialogName,
+            applicationSurvive.GetGroup(ApplicationSurviveMatcher.UIDialogName),
+            (e, c) => ((UI.Component.UIDialogName)c).indexer));
+
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, UnityEngine.GameObject>(
             View,
             game.GetGroup(GameMatcher.View),
@@ -76,6 +82,10 @@ public partial class Contexts {
 }
 
 public static class ContextsExtensions {
+
+    public static System.Collections.Generic.HashSet<ApplicationSurviveEntity> GetEntitiesWithUIDialogName(this ApplicationSurviveContext context, string indexer) {
+        return ((Entitas.EntityIndex<ApplicationSurviveEntity, string>)context.GetEntityIndex(Contexts.UIDialogName)).GetEntities(indexer);
+    }
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithView(this GameContext context, UnityEngine.GameObject value) {
         return ((Entitas.EntityIndex<GameEntity, UnityEngine.GameObject>)context.GetEntityIndex(Contexts.View)).GetEntities(value);

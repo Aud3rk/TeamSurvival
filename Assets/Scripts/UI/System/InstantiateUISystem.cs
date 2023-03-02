@@ -22,7 +22,7 @@ namespace UI.System
 
         protected override bool Filter(ApplicationSurviveEntity entity)
         {
-            return entity.hasResource;
+            return entity.hasResource && entity.hasUIDefaultActive;
         }
 
         protected override void Execute(List<ApplicationSurviveEntity> entities)
@@ -32,6 +32,7 @@ namespace UI.System
                 var gameObject = Object.Instantiate(entity.resource.prefab);
                 entity.AddView(gameObject);
                 gameObject.Link(entity);
+                gameObject.SetActive(entity.uiDefaultActive.active);
                 if (entity.hasParent)
                 {
                     gameObject.transform.SetParent(entity.parent.gameObject.transform);

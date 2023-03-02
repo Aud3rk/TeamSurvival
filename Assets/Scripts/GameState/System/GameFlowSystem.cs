@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Entitas;
 using GameState.Component;
+using UI.Data;
 
 namespace GameState.System
 {
@@ -40,11 +42,21 @@ namespace GameState.System
 
         private void GoToMenu()
         {
+            var gameMenu =
+                _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.GameMenu).First();
+            var mainMenu = _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.MainMenu).First();
+            mainMenu.view.value.gameObject.SetActive(true);
+            gameMenu.view.value.gameObject.SetActive(false);
             _contexts.game.DestroyAllEntities();
         }
 
         private void CreateGame()
         {
+            var gameMenu =
+                _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.GameMenu).First();
+            var mainMenu = _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.MainMenu).First();
+            mainMenu.view.value.gameObject.SetActive(false);
+            gameMenu.view.value.gameObject.SetActive(true);
         }
     }
 }

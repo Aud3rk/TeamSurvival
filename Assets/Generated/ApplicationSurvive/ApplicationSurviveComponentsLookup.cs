@@ -13,11 +13,13 @@ public static class ApplicationSurviveComponentsLookup {
     public const int Parent = 2;
     public const int Resource = 3;
     public const int StateGame = 4;
-    public const int UIRoot = 5;
-    public const int UIConfig = 6;
-    public const int View = 7;
+    public const int UIDefaultActive = 5;
+    public const int UIDialogName = 6;
+    public const int UIRoot = 7;
+    public const int UIConfig = 8;
+    public const int View = 9;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "GameSetup",
@@ -25,6 +27,8 @@ public static class ApplicationSurviveComponentsLookup {
         "Parent",
         "Resource",
         "StateGame",
+        "UIDefaultActive",
+        "UIDialogName",
         "UIRoot",
         "UIConfig",
         "View"
@@ -36,6 +40,8 @@ public static class ApplicationSurviveComponentsLookup {
         typeof(ParentComponent),
         typeof(ResourceComponent),
         typeof(StateGameComponent),
+        typeof(UI.Component.UIDefaultActiveComponent),
+        typeof(UI.Component.UIDialogName),
         typeof(UI.Component.UIRootComponent),
         typeof(UIConfigComponent),
         typeof(ViewComponent)
