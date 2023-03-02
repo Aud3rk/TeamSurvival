@@ -1,5 +1,6 @@
 using Entitas;
 using Entitas.Unity;
+using UI.Data;
 using UnityEngine;
 
 namespace UI.System
@@ -19,26 +20,27 @@ namespace UI.System
 
         public void Initialize()
         {
-            CreateUIRoot(_contexts.game.uIConfig.value.RootUIElement);
-            AddNewUIEntity(_contexts.game.uIConfig.value.GamePlayMenu);
-            AddNewUIEntity(_contexts.game.uIConfig.value.MainMenuPrefab);
+            CreateUIRoot(_contexts.applicationSurvive.uIConfig.value.RootUIElement);
+            AddNewUIEntity(_contexts.applicationSurvive.uIConfig.value.GamePlayMenu, UiDialogName.GameMenu);
+            AddNewUIEntity(_contexts.applicationSurvive.uIConfig.value.MainMenuPrefab, UiDialogName.MainMenu, true);
         }
 
         private void CreateUIRoot(GameObject rootPrefab)
         {
-            UiEntity uiEntity = _contexts.ui.CreateEntity();
+            ApplicationSurviveEntity uiEntity = _contexts.applicationSurvive.CreateEntity();
             _rootObject = Object.Instantiate(rootPrefab);
             uiEntity.AddView(_rootObject);
             _rootObject.Link(uiEntity);
-            uiEntity.isUIRoot = true;
-            _rootObject.SetActive(false);//Activate when ui will work
+            uiEntity.AddUIDefaultActive(true);
         }
 
-        private void AddNewUIEntity(GameObject prefab)
+        private void AddNewUIEntity(GameObject prefab, string dialogId, bool defaultActive = false)
         {
-            UiEntity uiEntity  = _contexts.ui.CreateEntity();
+            ApplicationSurviveEntity uiEntity = _contexts.applicationSurvive.CreateEntity();
             uiEntity.AddResource(prefab);
             uiEntity.AddParent(_rootObject);
+            uiEntity.AddUIDialogName(dialogId);
+            uiEntity.AddUIDefaultActive(defaultActive);
         }
     }
 }

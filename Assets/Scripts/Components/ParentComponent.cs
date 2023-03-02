@@ -1,7 +1,7 @@
 using Entitas;
 using UnityEngine;
 
-[Game, Ui]
+[Game, ApplicationSurvive]
 public class ParentComponent : IComponent
 {
     public GameObject gameObject;

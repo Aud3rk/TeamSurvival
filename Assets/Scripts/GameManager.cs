@@ -1,8 +1,10 @@
 using System;
 using Data;
 using Entitas;
-using UI.System;
+using GameState.Component;
+using Survive;
 using UnityEngine;
+using StateGameComponent = GameState.Component.StateGameComponent;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,49 +13,30 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIConfig _uiConfig;
 
 
-    private Systems _systems;
+    private Systems _applicationSystems;
 
     private void Start()
     {
         var context = Contexts.sharedInstance;
 
-        var entity = context.game.CreateEntity();
-        entity.AddGameSetup(_gameSetup);
-        entity.AddUIConfig(_uiConfig);
-
-        _systems = CreateSystems(context);
-        _systems.Initialize();
+        var applicationSurviveEntity = context.applicationSurvive.CreateEntity();
+        applicationSurviveEntity.AddUIConfig(_uiConfig);
+        applicationSurviveEntity.AddGameSetup(_gameSetup);
+        applicationSurviveEntity.AddStateGame(new GameState.Component.StateGameComponent());
+        
+        _applicationSystems = CreateSystems(context);
+        _applicationSystems.Initialize();
     }
 
     private void Update()
     {
-        _systems.Execute();
+        _applicationSystems.Execute();
     }
   
     private Systems CreateSystems(Contexts contexts)
     {
-        return new Feature("Game")
-            .Add(new InitializeUISystem(contexts))
-            .Add(new InstantiateUISystem(contexts))
-            .Add(new InstantiateViewSystem(contexts))
-            .Add(new InitializePlayerSystem(contexts))
-            .Add(new InitializePositionSystem(contexts))
-            .Add(new InputSystem(contexts))
-            .Add(new MoveSystem(contexts))
-            .Add(new DamageProviderSystem(contexts))
-            .Add(new InitializeBonfireSystem(contexts))
-            .Add(new BuriningSystem(contexts))
-            .Add(new InitializeWoodSystem(contexts))
-            .Add(new AddingWoodToBonfireSystem(contexts))
-            .Add(new TakeItemSystem(contexts))
-            .Add(new DestroySystem(contexts))
-            .Add(new DropWoodSystem(contexts))
-            .Add(new BurningWoodSystem(contexts))
-            .Add(new InitializeAppleSystem(contexts))
-            .Add(new InitializeTreeSystem(contexts))
-            .Add(new PlayerAttackSystem(contexts))
-            .Add(new HealthProviderSystem(contexts))
-            .Add(new AppleEatSystem(contexts))
-            ;
+        return 
+            new ApplicationFeature(contexts)
+            .Add(new GameFeature(contexts));
     }
 }

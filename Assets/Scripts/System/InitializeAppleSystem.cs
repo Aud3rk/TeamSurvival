@@ -14,7 +14,7 @@ public class InitializeAppleSystem : IInitializeSystem
     public void Initialize()
     {
         var entity = _contexts.game.CreateEntity();
-        entity.AddResource(_contexts.game.gameSetup.value.apple);
+        entity.AddResource(_contexts.applicationSurvive.gameSetup.value.apple);
         entity.isApple = true;
         entity.AddInitalPosition(Vector3.zero);
     }

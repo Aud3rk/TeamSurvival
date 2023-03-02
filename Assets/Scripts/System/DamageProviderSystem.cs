@@ -35,7 +35,7 @@ public class DamageProviderSystem : ReactiveSystem<GameEntity>
                     if (damageReceiverIndex.isTree)
                     {
                         var wood = _contexts.game.CreateEntity();
-                        wood.AddResource(_contexts.game.gameSetup.value.wood);
+                        wood.AddResource(_contexts.applicationSurvive.gameSetup.value.wood);
                         wood.isWood = true;
                         wood.AddInitalPosition(damageReceiver.transform.position);
                     }

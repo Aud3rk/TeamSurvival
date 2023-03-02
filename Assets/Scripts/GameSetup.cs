@@ -4,7 +4,7 @@ using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
 [CreateAssetMenu]
-[Game, Unique]
+[ApplicationSurvive, Unique]
 public class GameSetup : ScriptableObject
 {
     public GameObject player;
