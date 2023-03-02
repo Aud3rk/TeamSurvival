@@ -24,6 +24,9 @@ public class PlayerAttackSystem : IExecuteSystem
                     var entity = _contexts.game.CreateEntity();
                     entity.AddDamage(hit.transform.gameObject, 10);
                 }
+
+                var anim = _contexts.game.playerEntity.view.value.GetComponent<Animation>();
+                anim.Play();
             }
         }
     }

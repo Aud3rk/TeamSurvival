@@ -13,6 +13,7 @@ public class GameSetup : ScriptableObject
     public GameObject apple;
     public GameObject tree;
     public GameObject appleForAntimation;
+    public GameObject axe;
     public float speed=10f;
     public float sensivityX = 2f;
     public float sensivityY = 5f;

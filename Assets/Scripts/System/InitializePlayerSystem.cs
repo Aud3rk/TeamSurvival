@@ -37,5 +37,6 @@ public class InitializePlayerSystem : ReactiveSystem<ApplicationSurviveEntity>
         entity.AddInitalPosition(new Vector3(10, 10, 10));
         entity.AddHealth(100, 100);
         entity.AddInventory(0, 0);
+
     }
 }
