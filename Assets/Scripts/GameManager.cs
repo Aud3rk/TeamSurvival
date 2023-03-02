@@ -54,6 +54,6 @@ public class GameManager : MonoBehaviour
             .Add(new PlayerAttackSystem(contexts))
             .Add(new HealthProviderSystem(contexts))
             .Add(new AppleEatSystem(contexts))
-            ;
+            .Add(new InitializeEnemySystem(contexts));
     }
 }

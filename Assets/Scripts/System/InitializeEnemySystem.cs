@@ -13,9 +13,14 @@ public class InitializeEnemySystem : IInitializeSystem
         var entity = _contexts.game.CreateEntity();
         entity.isEnemyComponents = true;
         entity.AddResource(_contexts.game.gameSetup.value.enemy);
-        entity.AddInitalPosition(new Vector3(10,10,10));
-        entity.AddHealth(100,100);
-        entity.AddInventory(0,0);
+        entity.AddInitalPosition(new Vector3(-12,-1,10));
+        entity.AddHealth(150,150);
+
+
         
+
+        
+
+
     }
 }

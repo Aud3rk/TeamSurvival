@@ -14,6 +14,7 @@ public class MoveSystem : IExecuteSystem
         var move = _contexts.game.input.moveDir;
         var chracterController = _contexts.game.playerEntity.view.value.transform.GetComponent<CharacterController>();
         var speed = _contexts.game.gameSetup.value.speed;
+        var speedEnemy = _contexts.game.gameSetup.value.speedEnemy;
         
         var look = _contexts.game.input.lookDir;
         var sensX = _contexts.game.gameSetup.value.sensivityX;
