@@ -14,7 +14,7 @@ public class InitializeTreeSystem : IInitializeSystem
         entity.AddResource(_contexts.applicationSurvive.gameSetup.value.tree);
         entity.isTree = true;
         entity.AddHealth(10,100);
-        entity.AddInitalPosition(Vector3.zero);
+        entity.AddInitalPosition(new Vector3(0, -2.5f, 0));
         entity.AddDropLoot(Loot.wood);
     }
 }

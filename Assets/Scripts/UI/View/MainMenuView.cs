@@ -19,10 +19,12 @@ namespace UI.View
 
         private void OnExitButtonClick()
         {
+            Application.Quit();
         }
 
         private void OnContinueGameClick()
         {
+            
         }
 
         private void OnStartGameClick()

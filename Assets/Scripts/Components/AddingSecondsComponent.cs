@@ -1,6 +1,6 @@
 using Entitas;
-using UnityEngine;
 
+[Game]
 public class AddingSecondsComponent : IComponent
 {
     public float seconds;
