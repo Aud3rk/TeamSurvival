@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class ApplicationSurviveEntity {
 
-    public UI.Component.UIDefaultActiveComponent uiDefaultActive { get { return (UI.Component.UIDefaultActiveComponent)GetComponent(ApplicationSurviveComponentsLookup.UIDefaultActive); } }
+    public UI.Component.UIDefaultActiveComponent uIDefaultActive { get { return (UI.Component.UIDefaultActiveComponent)GetComponent(ApplicationSurviveComponentsLookup.UIDefaultActive); } }
     public bool hasUIDefaultActive { get { return HasComponent(ApplicationSurviveComponentsLookup.UIDefaultActive); } }
 
     public void AddUIDefaultActive(bool newActive) {

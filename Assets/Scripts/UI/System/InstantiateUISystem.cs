@@ -32,7 +32,7 @@ namespace UI.System
                 var gameObject = Object.Instantiate(entity.resource.prefab);
                 entity.AddView(gameObject);
                 gameObject.Link(entity);
-                gameObject.SetActive(entity.uiDefaultActive.active);
+                gameObject.SetActive(entity.uIDefaultActive.active);
                 if (entity.hasParent)
                 {
                     gameObject.transform.SetParent(entity.parent.gameObject.transform);
