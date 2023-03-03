@@ -10,6 +10,7 @@ namespace Survive
             Add(new InitializeAppleSystem(contexts));
             Add(new InitializeTreeSystem(contexts));
             Add(new InitializeWoodSystem(contexts));
+            Add(new InitializeEnemySystem(contexts));
 
             Add(new InputSystem(contexts));
             Add(new MoveSystem(contexts));
