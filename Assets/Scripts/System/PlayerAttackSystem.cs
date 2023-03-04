@@ -5,6 +5,8 @@ public class PlayerAttackSystem : IExecuteSystem
 {
     private Contexts _contexts;
     private string DAMAGEABLE_TAG = "Damageable";
+    private float _timeCD = 2f;
+    
 
     public PlayerAttackSystem(Contexts contexts)
     {
@@ -12,21 +14,25 @@ public class PlayerAttackSystem : IExecuteSystem
     }
     public void Execute()
     {
+        _timeCD -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Vector3 point = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0);
-            Ray ray = Camera.main.ScreenPointToRay(point);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
+            if(_timeCD<=0)
             {
-                if (hit.transform.gameObject.CompareTag(DAMAGEABLE_TAG))
+                _timeCD = 2f;
+                Ray ray = new Ray(_contexts.game.playerEntity.view.value.transform.position,
+                    _contexts.game.playerEntity.view.value.transform.forward);
+                /*Vector3 point = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0);
+                Ray ray = Camera.main.ScreenPointToRay(point);*/
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, 2))
                 {
-                    var entity = _contexts.game.CreateEntity();
-                    entity.AddDamage(hit.transform.gameObject, 10);
+                    if (hit.transform.gameObject.CompareTag(DAMAGEABLE_TAG))
+                    {
+                        var entity = _contexts.game.CreateEntity();
+                        entity.AddDamage(hit.transform.gameObject, 20);
+                    }
                 }
-
-                var anim = _contexts.game.playerEntity.view.value.GetComponent<Animation>();
-                anim.Play();
             }
         }
     }
