@@ -40,6 +40,8 @@ public class DamageProviderSystem : ReactiveSystem<GameEntity>
                         wood.AddInitalPosition(damageReceiver.transform.position);
                     }
                 }
+
+                damageReceiverIndex.isDied = true;
                 damageReceiverIndex.isToDestroy = true;
             }
             entity.Destroy();

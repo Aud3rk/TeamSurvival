@@ -14,25 +14,26 @@ public static class GameComponentsLookup {
     public const int Apple = 3;
     public const int Bonfire = 4;
     public const int BurnedWood = 5;
-    public const int Damage = 6;
-    public const int DropLoot = 7;
-    public const int Enemy = 8;
-    public const int Force = 9;
-    public const int Heal = 10;
-    public const int Health = 11;
-    public const int InitalPosition = 12;
-    public const int Input = 13;
-    public const int Inventory = 14;
-    public const int InventoryListener = 15;
-    public const int Parent = 16;
-    public const int Player = 17;
-    public const int Resource = 18;
-    public const int ToDestroy = 19;
-    public const int Tree = 20;
-    public const int View = 21;
-    public const int Wood = 22;
+    public const int Died = 6;
+    public const int Damage = 7;
+    public const int DropLoot = 8;
+    public const int Enemy = 9;
+    public const int Force = 10;
+    public const int Heal = 11;
+    public const int Health = 12;
+    public const int InitalPosition = 13;
+    public const int Input = 14;
+    public const int Inventory = 15;
+    public const int InventoryListener = 16;
+    public const int Parent = 17;
+    public const int Player = 18;
+    public const int Resource = 19;
+    public const int ToDestroy = 20;
+    public const int Tree = 21;
+    public const int View = 22;
+    public const int Wood = 23;
 
-    public const int TotalComponents = 23;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
         "ActualTimer",
@@ -41,6 +42,7 @@ public static class GameComponentsLookup {
         "Apple",
         "Bonfire",
         "BurnedWood",
+        "Died",
         "Damage",
         "DropLoot",
         "Enemy",
@@ -67,6 +69,7 @@ public static class GameComponentsLookup {
         typeof(AppleComponent),
         typeof(BonfireComponent),
         typeof(BurnedWoodComponent),
+        typeof(Components.DiedComponent),
         typeof(DamageComponent),
         typeof(DropLootComponent),
         typeof(EnemyComponent),

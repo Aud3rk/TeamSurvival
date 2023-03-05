@@ -5,7 +5,7 @@ public class PlayerAttackSystem : IExecuteSystem
 {
     private Contexts _contexts;
     private string DAMAGEABLE_TAG = "Damageable";
-    private float _timeCD = 2f;
+    private float _coolDownTime = 2f;
     
 
     public PlayerAttackSystem(Contexts contexts)
@@ -14,12 +14,12 @@ public class PlayerAttackSystem : IExecuteSystem
     }
     public void Execute()
     {
-        _timeCD -= Time.deltaTime;
+        _coolDownTime -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if(_timeCD<=0)
+            if(_coolDownTime<=0)
             {
-                _timeCD = 2f;
+                _coolDownTime = 2f;
                 Ray ray = new Ray(_contexts.game.playerEntity.view.value.transform.position,
                     _contexts.game.playerEntity.view.value.transform.forward);
                 /*Vector3 point = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0);
