@@ -9,7 +9,7 @@
 public sealed class GameEventSystems : Feature {
 
     public GameEventSystems(Contexts contexts) {
-        Add(new ActualTimerEventSystem(contexts)); // priority: 0
-        Add(new InventoryEventSystem(contexts)); // priority: 0
+        Add(new AnyActualTimerEventSystem(contexts)); // priority: 0
+        Add(new AnyInventoryEventSystem(contexts)); // priority: 0
     }
 }

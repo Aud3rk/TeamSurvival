@@ -9,23 +9,23 @@
 public static class GameComponentsLookup {
 
     public const int ActualTimer = 0;
-    public const int ActualTimerListener = 1;
-    public const int AddingSeconds = 2;
-    public const int Apple = 3;
-    public const int Bonfire = 4;
-    public const int BurnedWood = 5;
-    public const int Died = 6;
-    public const int RemoveEntity = 7;
-    public const int Damage = 8;
-    public const int DropLoot = 9;
-    public const int Enemy = 10;
-    public const int Force = 11;
-    public const int Heal = 12;
-    public const int Health = 13;
-    public const int InitalPosition = 14;
-    public const int Input = 15;
-    public const int Inventory = 16;
-    public const int InventoryListener = 17;
+    public const int AddingSeconds = 1;
+    public const int AnyActualTimerListener = 2;
+    public const int AnyInventoryListener = 3;
+    public const int Apple = 4;
+    public const int Bonfire = 5;
+    public const int BurnedWood = 6;
+    public const int Died = 7;
+    public const int RemoveEntity = 8;
+    public const int Damage = 9;
+    public const int DropLoot = 10;
+    public const int Enemy = 11;
+    public const int Force = 12;
+    public const int Heal = 13;
+    public const int Health = 14;
+    public const int InitalPosition = 15;
+    public const int Input = 16;
+    public const int Inventory = 17;
     public const int Parent = 18;
     public const int Player = 19;
     public const int Resource = 20;
@@ -38,8 +38,9 @@ public static class GameComponentsLookup {
 
     public static readonly string[] componentNames = {
         "ActualTimer",
-        "ActualTimerListener",
         "AddingSeconds",
+        "AnyActualTimerListener",
+        "AnyInventoryListener",
         "Apple",
         "Bonfire",
         "BurnedWood",
@@ -54,7 +55,6 @@ public static class GameComponentsLookup {
         "InitalPosition",
         "Input",
         "Inventory",
-        "InventoryListener",
         "Parent",
         "Player",
         "Resource",
@@ -66,8 +66,9 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(ActualTimerComponent),
-        typeof(ActualTimerListenerComponent),
         typeof(AddingSecondsComponent),
+        typeof(AnyActualTimerListenerComponent),
+        typeof(AnyInventoryListenerComponent),
         typeof(AppleComponent),
         typeof(BonfireComponent),
         typeof(BurnedWoodComponent),
@@ -82,7 +83,6 @@ public static class GameComponentsLookup {
         typeof(InitalPositionComponent),
         typeof(InputComponent),
         typeof(InventoryComponent),
-        typeof(InventoryListenerComponent),
         typeof(ParentComponent),
         typeof(PlayerComponent),
         typeof(ResourceComponent),

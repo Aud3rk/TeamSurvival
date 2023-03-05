@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface IInventoryListener {
-    void OnInventory(GameEntity entity, int woodCount, int appleCount);
+public interface IAnyInventoryListener {
+    void OnAnyInventory(GameEntity entity, int woodCount, int appleCount);
 }

@@ -7,6 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
-public sealed class InventoryListenerComponent : Entitas.IComponent {
-    public System.Collections.Generic.List<IInventoryListener> value;
+public sealed class AnyInventoryListenerComponent : Entitas.IComponent {
+    public System.Collections.Generic.List<IAnyInventoryListener> value;
 }

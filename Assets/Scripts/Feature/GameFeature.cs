@@ -1,4 +1,5 @@
 using System;
+using UI.System;
 
 namespace Survive
 {
@@ -12,8 +13,8 @@ namespace Survive
             Add(new InitializeAppleSystem(contexts));
             Add(new InitializeTreeSystem(contexts));
             Add(new InitializeWoodSystem(contexts));
-            Add(new InventoryEventSystem(contexts));
-            Add(new ActualTimerEventSystem(contexts));
+            Add(new AnyInventoryEventSystem(contexts));
+            Add(new AnyActualTimerEventSystem(contexts));
             Add(new InitializeEnemySystem(contexts));
             Add(new GameOverSystem(contexts));
 
@@ -29,6 +30,7 @@ namespace Survive
             Add(new PlayerAttackSystem(contexts));
             Add(new HealthProviderSystem(contexts));
             Add(new AppleEatSystem(contexts));
+            Add(new UIUpdateListenerSystem(contexts));
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
 using Entitas.Unity;
+using UI.Abstractions;
 using UnityEngine;
 
 namespace UI.System
@@ -36,6 +37,12 @@ namespace UI.System
                 if (entity.hasParent)
                 {
                     gameObject.transform.SetParent(entity.parent.gameObject.transform);
+                }
+
+                var updateListener = gameObject.GetComponent<IUpdateListeners>();
+                if (updateListener != null)
+                {
+                    entity.AddUIUpdateListeners(updateListener);
                 }
             }
 

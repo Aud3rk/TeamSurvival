@@ -63,7 +63,6 @@ namespace GameState.System
                 }
             }
 
-            _contexts.game.RemoveAllEventHandlers();
             _contexts.game.Reset();
             _gameManager.ActivateReactSystems();
         }
@@ -84,12 +83,11 @@ namespace GameState.System
         {
             Time.timeScale = 1;
             var gameMenu =
-                _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.GameMenu).First();
+                _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.GameMenu).SingleEntity();
             var mainMenu = _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.MainMenu).First();
             mainMenu.view.value.gameObject.SetActive(false);
             gameMenu.view.value.gameObject.SetActive(true);
+            
         }
-
-
     }
 }
