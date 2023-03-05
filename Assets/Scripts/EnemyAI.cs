@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,9 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent _navMeshAgent;
-    private float _timeCD = 4f;
+    private float _coolDownTime = 4f;
+    private bool isDestroyed;
+
     private void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -15,25 +18,37 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         if (Contexts.sharedInstance.game.playerEntity.hasView)
+        {
             _navMeshAgent.destination = Contexts.sharedInstance.game.playerEntity.view.value.transform.position;
-        Attack();
+            Attack(); 
+        }
     }
-    
+
     private void Attack()
     {
-        _timeCD -= Time.deltaTime;
-        if (inDistance())
+        if (isDestroyed)
         {
-            if (_timeCD <= 0)
+            return;
+        }
+
+        _coolDownTime -= Time.deltaTime;
+        if (IsInAttackDistance())
+        {
+            if (_coolDownTime <= 0)
             {
-                _timeCD = 5f;
+                _coolDownTime = 5f;
                 var entity = Contexts.sharedInstance.game.CreateEntity();
                 entity.AddDamage(Contexts.sharedInstance.game.playerEntity.view.value.gameObject, 15);
             }
         }
     }
 
-    private bool inDistance()
+    private void OnDestroy()
+    {
+        isDestroyed = true;
+    }
+
+    private bool IsInAttackDistance()
     {
         return (Vector3.Distance(transform.position,
             Contexts.sharedInstance.game.playerEntity.view.value.transform.position) < 2f);
