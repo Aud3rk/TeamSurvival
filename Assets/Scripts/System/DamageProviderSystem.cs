@@ -26,13 +26,13 @@ public class DamageProviderSystem : ReactiveSystem<GameEntity>
         {
             var damageReceiver = entity.damage.damageReceiver;
             var damage = entity.damage.damage;
-            var damageReceiverIndex = _contexts.game.GetEntitiesWithView(damageReceiver).SingleEntity();
-            damageReceiverIndex.health.healthCurrent -= damage;
-            if (damageReceiverIndex.health.healthCurrent <= 0)
+            var damagedRecivedEntity = _contexts.game.GetEntitiesWithView(damageReceiver).SingleEntity();
+            damagedRecivedEntity.health.healthCurrent -= damage;
+            if (damagedRecivedEntity.health.healthCurrent <= 0)
             {
-                if (damageReceiverIndex.hasDropLoot)
+                if (damagedRecivedEntity.hasDropLoot)
                 {
-                    if (damageReceiverIndex.isTree)
+                    if (damagedRecivedEntity.isTree)
                     {
                         var wood = _contexts.game.CreateEntity();
                         wood.AddResource(_contexts.applicationSurvive.gameSetup.value.wood);
@@ -40,9 +40,13 @@ public class DamageProviderSystem : ReactiveSystem<GameEntity>
                         wood.AddInitalPosition(damageReceiver.transform.position);
                     }
                 }
+                if (damagedRecivedEntity.isPlayer)
+                {
+                    
+                }
 
-                damageReceiverIndex.isDied = true;
-                damageReceiverIndex.isToDestroy = true;
+                damagedRecivedEntity.isDied = true;
+                damagedRecivedEntity.isToDestroy = true;
             }
             entity.Destroy();
         }
