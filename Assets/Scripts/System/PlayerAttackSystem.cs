@@ -5,7 +5,7 @@ public class PlayerAttackSystem : IExecuteSystem
 {
     private Contexts _contexts;
     private string DAMAGEABLE_TAG = "Damageable";
-    private float _coolDownTime = 2f;
+    private float _coolDownAttack = 2f;
     
 
     public PlayerAttackSystem(Contexts contexts)
@@ -14,23 +14,24 @@ public class PlayerAttackSystem : IExecuteSystem
     }
     public void Execute()
     {
-        _coolDownTime -= Time.deltaTime;
+        _coolDownAttack -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if(_coolDownTime<=0)
+            
+            Ray ray = new Ray(_contexts.game.playerEntity.view.value.transform.position,
+                _contexts.game.playerEntity.view.value.transform.forward);
+            /*Vector3 point = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0);
+            Ray ray = Camera.main.ScreenPointToRay(point);*/
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 2))
             {
-                _coolDownTime = 2f;
-                Ray ray = new Ray(_contexts.game.playerEntity.view.value.transform.position,
-                    _contexts.game.playerEntity.view.value.transform.forward);
-                /*Vector3 point = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0);
-                Ray ray = Camera.main.ScreenPointToRay(point);*/
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 2))
+                if (_coolDownAttack <= 0)
                 {
+                    _coolDownAttack = 1f;
                     if (hit.transform.gameObject.CompareTag(DAMAGEABLE_TAG))
                     {
                         var entity = _contexts.game.CreateEntity();
-                        entity.AddDamage(hit.transform.gameObject, 20);
+                        entity.AddDamage(hit.transform.gameObject, 25);
                     }
                 }
             }

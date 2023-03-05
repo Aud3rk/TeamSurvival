@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameSetup
   m_EditorClassIdentifier: 
   player: {fileID: 820116305885351675, guid: 49601f640f765664cbd8ed19e06b50be, type: 3}
-  enemy: {fileID: 9155162599051271635, guid: 22fdcc286095fe64a811126b2d469d86, type: 3}
+  enemy: {fileID: 175852, guid: f8243bb353e5cb74481bb26fe62fd298, type: 3}
   bonFire: {fileID: 7540191481854537095, guid: 7f23351d8d3b6aa4db8a3d49e923ad49, type: 3}
   wood: {fileID: 5520821824965193108, guid: f1d68920a65cadb459d40c082b54469a, type: 3}
   apple: {fileID: 4625656852305415677, guid: 4cb195d5309e74b4484872a1988a7fe6, type: 3}
