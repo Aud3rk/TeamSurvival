@@ -1,16 +1,27 @@
 using Entitas;
+using GameState.Component;
 using UnityEngine;
 
-public class BuriningSystem : IExecuteSystem
+public class BurningSystem : IExecuteSystem
 {
     private Contexts _contexts;
-    public BuriningSystem(Contexts contexts)
+
+    public BurningSystem(Contexts contexts)
     {
         _contexts = contexts;
     }
+
     public void Execute()
     {
-        Timer();
+        if (IsInGame())
+        {
+            Timer();
+        }
+    }
+
+    private bool IsInGame()
+    {
+        return _contexts.applicationSurvive.stateGame.value.gameState == GameStateType.Game;
     }
 
     private void Timer()
@@ -20,6 +31,7 @@ public class BuriningSystem : IExecuteSystem
         if (burningTime <= 0)
         {
         }
+
         _contexts.game.bonfireEntity.ReplaceActualTimer(burningTime);
     }
 }

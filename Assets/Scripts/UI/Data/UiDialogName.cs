@@ -4,5 +4,6 @@ namespace UI.Data
     {
         public const string MainMenu = "MainMenu";
         public const string GameMenu = "GameMenu";
+        public const string GameOverDialog = "GameOverDialog";
     }
 }

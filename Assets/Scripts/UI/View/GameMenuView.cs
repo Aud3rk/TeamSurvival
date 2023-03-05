@@ -26,5 +26,6 @@ namespace UI.View
         {
             _timeBurningFire.text = Mathf.FloorToInt(seconds).ToString();
         }
+        
     }
 }

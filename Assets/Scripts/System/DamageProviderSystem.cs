@@ -40,9 +40,9 @@ public class DamageProviderSystem : ReactiveSystem<GameEntity>
                         wood.AddInitalPosition(damageReceiver.transform.position);
                     }
                 }
-                if (damagedRecivedEntity.isPlayer)
+                if (!damagedRecivedEntity.isPlayer)
                 {
-                    
+                    damagedRecivedEntity.isRemoveEntity = true;
                 }
 
                 damagedRecivedEntity.isDied = true;

@@ -1,9 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Entitas;
+using Entitas.Unity;
 using GameState.Component;
 using UI.Data;
+using UnityEngine;
 
 namespace GameState.System
 {
@@ -11,10 +12,12 @@ namespace GameState.System
     public class GameFlowSystem : ReactiveSystem<ApplicationSurviveEntity>
     {
         private Contexts _contexts;
+        private GameManager _gameManager;
 
-        public GameFlowSystem(Contexts contexts) : base(contexts.applicationSurvive)
+        public GameFlowSystem(Contexts contexts, GameManager gameManager) : base(contexts.applicationSurvive)
         {
             _contexts = contexts;
+            _gameManager = gameManager;
         }
 
 
@@ -36,27 +39,57 @@ namespace GameState.System
             }
             else
             {
-                GoToMenu();
+                ChangeStateToMenu();
             }
         }
 
-        private void GoToMenu()
+        private void ChangeStateToMenu()
+        {
+            ConfigureUI();
+            ClearWorld();
+        }
+
+        private void ClearWorld()
+        {
+            _gameManager.DeactivateReactiveSystems();
+            foreach (var gameEntity in _contexts.game.GetEntities())
+            {
+                if (gameEntity.hasView)
+                {
+                    var view = gameEntity.view.value;
+                    view.Unlink();
+                    GameObject.Destroy(view);
+                    gameEntity.RemoveView();
+                }
+            }
+
+            _contexts.game.RemoveAllEventHandlers();
+            _contexts.game.Reset();
+            _gameManager.ActivateReactSystems();
+        }
+
+        private void ConfigureUI()
         {
             var gameMenu =
-                _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.GameMenu).First();
+                _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.GameMenu).SingleEntity();
             var mainMenu = _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.MainMenu).First();
+            var gameOverMenu = _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.GameOverDialog)
+                .SingleEntity();
             mainMenu.view.value.gameObject.SetActive(true);
+            gameOverMenu.view.value.gameObject.SetActive(false);
             gameMenu.view.value.gameObject.SetActive(false);
-            _contexts.game.DestroyAllEntities();
         }
 
         private void CreateGame()
         {
+            Time.timeScale = 1;
             var gameMenu =
                 _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.GameMenu).First();
             var mainMenu = _contexts.applicationSurvive.GetEntitiesWithUIDialogName(UiDialogName.MainMenu).First();
             mainMenu.view.value.gameObject.SetActive(false);
             gameMenu.view.value.gameObject.SetActive(true);
         }
+
+
     }
 }

@@ -1,10 +1,7 @@
-using System;
 using Data;
 using Entitas;
-using GameState.Component;
 using Survive;
 using UnityEngine;
-using StateGameComponent = GameState.Component.StateGameComponent;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,7 +33,17 @@ public class GameManager : MonoBehaviour
     private Systems CreateSystems(Contexts contexts)
     {
         return 
-            new ApplicationFeature(contexts)
+            new ApplicationFeature(contexts, this)
             .Add(new GameFeature(contexts));
+    }
+
+    public void DeactivateReactiveSystems()
+    {
+        _applicationSystems.DeactivateReactiveSystems();
+    }
+
+    public void ActivateReactSystems()
+    {
+        _applicationSystems.ActivateReactiveSystems();
     }
 }

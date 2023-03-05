@@ -15,3 +15,4 @@ MonoBehaviour:
   _rootUIElement: {fileID: 6031892566331426640, guid: 6209ea92b8226ba45ac2f817877b4d74, type: 3}
   _mainMenuPrefab: {fileID: 5066962355739989301, guid: fc39210355599d64f9d3ffe574b60b91, type: 3}
   _gamePlayMenu: {fileID: 5066962355739989301, guid: e48f0eda7ad94cf40810f656344c85e7, type: 3}
+  _gameOverMenu: {fileID: 5066962355739989301, guid: 969a727d07cf12f47ba1a904c0893a8c, type: 3}

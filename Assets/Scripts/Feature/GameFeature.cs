@@ -1,3 +1,5 @@
+using System;
+
 namespace Survive
 {
     public class GameFeature : Feature
@@ -13,11 +15,12 @@ namespace Survive
             Add(new InventoryEventSystem(contexts));
             Add(new ActualTimerEventSystem(contexts));
             Add(new InitializeEnemySystem(contexts));
+            Add(new GameOverSystem(contexts));
 
             Add(new InputSystem(contexts));
             Add(new MoveSystem(contexts));
             Add(new DamageProviderSystem(contexts));
-            Add(new BuriningSystem(contexts));
+            Add(new BurningSystem(contexts));
             Add(new AddingWoodToBonfireSystem(contexts));
             Add(new TakeItemSystem(contexts));
             Add(new DestroySystem(contexts));
