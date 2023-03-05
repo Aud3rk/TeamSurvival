@@ -42,5 +42,17 @@ public class InitializeTreeSystem : IInitializeSystem
             entity.AddInitalPosition(treePos);
             entity.AddDropLoot(Loot.wood);
         }
+        
+        var listPines2Tree = _contexts.applicationSurvive.gameSetup.value.pines2Tree;
+        foreach (var treePos in listPines2Tree)
+        {
+            var entity = _contexts.game.CreateEntity();
+            entity.AddResource(_contexts.applicationSurvive.gameSetup.value.treePines2);
+            entity.isTree = true;
+            entity.AddHealth(10,100);
+            entity.AddInitalPosition(treePos);
+            entity.AddDropLoot(Loot.wood);
+        }
+
     }
 }

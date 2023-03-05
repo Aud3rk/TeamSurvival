@@ -8,11 +8,13 @@ public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent _navMeshAgent;
     private float _coolDownTime = 4f;
+    private Animator _animator;
     private bool isDestroyed;
 
     private void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -36,6 +38,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (_coolDownTime <= 0)
             {
+                _animator.SetTrigger("Attack");
                 _coolDownTime = 5f;
                 var entity = Contexts.sharedInstance.game.CreateEntity();
                 entity.AddDamage(Contexts.sharedInstance.game.playerEntity.view.value.gameObject, 15);

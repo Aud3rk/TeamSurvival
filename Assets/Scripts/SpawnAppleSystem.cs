@@ -34,6 +34,5 @@ public class SpawnAppleSystem : MonoBehaviour
         entity.AddResource(_applePrefab);
         entity.isApple = true;
         entity.AddInitalPosition(transform.position+new Vector3(1,1,1));
-        Debug.Log(transform.position);
     }
 }

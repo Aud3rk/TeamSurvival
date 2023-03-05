@@ -14,7 +14,7 @@ public class InitializeBonfireSystem : ReactiveSystem<ApplicationSurviveEntity>
         var entity = _contexts.game.bonfireEntity;
         entity.AddResource(_contexts.applicationSurvive.gameSetup.value.bonFire);
         entity.AddActualTimer(20f);
-        entity.AddInitalPosition(new Vector3(5, -2, 5));
+        entity.AddInitalPosition(new Vector3(5, -2.5f, 5));
     }
 
     public InitializeBonfireSystem(Contexts contexts) : base(contexts.applicationSurvive)

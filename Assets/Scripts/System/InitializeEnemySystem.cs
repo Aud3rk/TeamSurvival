@@ -31,11 +31,10 @@ public class InitializeEnemySystem : ReactiveSystem<ApplicationSurviveEntity>
 
     private void Initialize()
     {
-        var entity = _contexts.game.CreateEntity();
-        entity.isEnemy = true;
-        entity.AddResource(_contexts.applicationSurvive.gameSetup.value.enemy);
-        entity.AddInitalPosition(new Vector3(-15, -2, -1));
-        entity.AddHealth(70, 70);
+        foreach (var pos in _contexts.applicationSurvive.gameSetup.value.enemySpawnerPosition)
+        {
+            var spawner =Object.Instantiate(_contexts.applicationSurvive.gameSetup.value.enemySpawner,pos,Quaternion.identity);
+        }
 
     }
 }
