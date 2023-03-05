@@ -12,9 +12,14 @@ public class GameSetup : ScriptableObject
     public GameObject bonFire;
     public GameObject wood;
     public GameObject apple;
-    public GameObject tree;
+    public GameObject treeApple;
+    public GameObject treeOat;
     public GameObject appleForAntimation;
-    public GameObject axe;
+    public GameObject treePines;
+    public List<Vector3> appleTree;
+    public List<Vector3> oatsTree;
+    public List<Vector3> pines1Tree;
+    
     public float speed=10f;
     public float sensivityX = 2f;
     public float sensivityY = 5f;

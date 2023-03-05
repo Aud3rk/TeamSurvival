@@ -33,6 +33,7 @@ public class SpawnAppleSystem : MonoBehaviour
         var entity =Contexts.sharedInstance.game.CreateEntity();
         entity.AddResource(_applePrefab);
         entity.isApple = true;
-        entity.AddInitalPosition(transform.forward);
+        entity.AddInitalPosition(transform.position+new Vector3(1,1,1));
+        Debug.Log(transform.position);
     }
 }

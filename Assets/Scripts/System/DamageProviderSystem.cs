@@ -37,7 +37,7 @@ public class DamageProviderSystem : ReactiveSystem<GameEntity>
                         var wood = _contexts.game.CreateEntity();
                         wood.AddResource(_contexts.applicationSurvive.gameSetup.value.wood);
                         wood.isWood = true;
-                        wood.AddInitalPosition(damageReceiver.transform.position);
+                        wood.AddInitalPosition(damageReceiver.transform.position+Vector3.up);
                     }
                 }
                 damageReceiverIndex.isToDestroy = true;
