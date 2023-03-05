@@ -5,7 +5,7 @@ public class PlayerAttackSystem : IExecuteSystem
 {
     private Contexts _contexts;
     private string DAMAGEABLE_TAG = "Damageable";
-    private float _timeCD = 2f;
+    private float _coolDownAttack = 2f;
     
 
     public PlayerAttackSystem(Contexts contexts)
@@ -14,7 +14,7 @@ public class PlayerAttackSystem : IExecuteSystem
     }
     public void Execute()
     {
-        _timeCD -= Time.deltaTime;
+        _coolDownAttack -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.C))
         {
             
@@ -25,9 +25,9 @@ public class PlayerAttackSystem : IExecuteSystem
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 2))
             {
-                if (_timeCD <= 0)
+                if (_coolDownAttack <= 0)
                 {
-                    _timeCD = 1f;
+                    _coolDownAttack = 1f;
                     if (hit.transform.gameObject.CompareTag(DAMAGEABLE_TAG))
                     {
                         var entity = _contexts.game.CreateEntity();

@@ -3,7 +3,7 @@ using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 using EventType = Entitas.CodeGeneration.Attributes.EventType;
 
-[Event(EventTarget.Self, EventType.Added)]
+[Event(EventTarget.Any, EventType.Added)]
 [Game]
 public class InventoryComponent : IComponent
 {

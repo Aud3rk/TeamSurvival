@@ -23,6 +23,7 @@ namespace UI.System
             CreateUIRoot(_contexts.applicationSurvive.uIConfig.value.RootUIElement);
             AddNewUIEntity(_contexts.applicationSurvive.uIConfig.value.GamePlayMenu, UiDialogName.GameMenu);
             AddNewUIEntity(_contexts.applicationSurvive.uIConfig.value.MainMenuPrefab, UiDialogName.MainMenu, true);
+            AddNewUIEntity(_contexts.applicationSurvive.uIConfig.value.GameOverMenu, UiDialogName.GameOverDialog);
         }
 
         private void CreateUIRoot(GameObject rootPrefab)

@@ -32,8 +32,17 @@ public class DestroySystem : ReactiveSystem<GameEntity>
                 var view = entity.view.value;
                 view.Unlink();
                 Object.Destroy(view);
+                entity.RemoveView();
             }
-            entity.Destroy();
+
+            if (entity.isRemoveEntity)
+            {
+                entity.Destroy();
+            }
+            else
+            {
+                entity.isToDestroy = false;
+            }
         }
     }
 }

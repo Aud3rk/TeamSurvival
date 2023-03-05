@@ -1,19 +1,40 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Entitas;
-public class InitializeBonfireSystem : IInitializeSystem
+using GameState.Component;
+
+public class InitializeBonfireSystem : ReactiveSystem<ApplicationSurviveEntity>
 {
     private Contexts _contexts;
 
-    public InitializeBonfireSystem(Contexts contexts)
+
+    public void Initialize()
+    {
+        _contexts.game.isBonfire = true;
+        var entity = _contexts.game.bonfireEntity;
+        entity.AddResource(_contexts.applicationSurvive.gameSetup.value.bonFire);
+        entity.AddActualTimer(20f);
+        entity.AddInitalPosition(new Vector3(5, -2, 5));
+    }
+
+    public InitializeBonfireSystem(Contexts contexts) : base(contexts.applicationSurvive)
     {
         _contexts = contexts;
     }
-    public void Initialize()
+
+    protected override ICollector<ApplicationSurviveEntity> GetTrigger(IContext<ApplicationSurviveEntity> context)
     {
-        var entity = _contexts.game.CreateEntity();
-        entity.isBonfire = true;
-        entity.AddResource(_contexts.applicationSurvive.gameSetup.value.bonFire);
-        entity.AddActualTimer(20f);
-        entity.AddInitalPosition(new Vector3(5,-2,5));
+        return context.CreateCollector(ApplicationSurviveMatcher.ChangeState);
+    }
+
+    protected override bool Filter(ApplicationSurviveEntity entity)
+    {
+        return entity.changeState.changeState &&
+               _contexts.applicationSurvive.stateGame.value.gameState == GameStateType.Game;
+    }
+
+    protected override void Execute(List<ApplicationSurviveEntity> entities)
+    {
+        Initialize();
     }
 }

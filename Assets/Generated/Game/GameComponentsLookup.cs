@@ -9,38 +9,43 @@
 public static class GameComponentsLookup {
 
     public const int ActualTimer = 0;
-    public const int ActualTimerListener = 1;
-    public const int AddingSeconds = 2;
-    public const int Apple = 3;
-    public const int Bonfire = 4;
-    public const int BurnedWood = 5;
-    public const int Damage = 6;
-    public const int DropLoot = 7;
-    public const int Enemy = 8;
-    public const int Force = 9;
-    public const int Heal = 10;
-    public const int Health = 11;
-    public const int InitalPosition = 12;
-    public const int Input = 13;
-    public const int Inventory = 14;
-    public const int InventoryListener = 15;
-    public const int Parent = 16;
-    public const int Player = 17;
-    public const int Resource = 18;
-    public const int ToDestroy = 19;
-    public const int Tree = 20;
-    public const int View = 21;
-    public const int Wood = 22;
+    public const int AddingSeconds = 1;
+    public const int AnyActualTimerListener = 2;
+    public const int AnyInventoryListener = 3;
+    public const int Apple = 4;
+    public const int Bonfire = 5;
+    public const int BurnedWood = 6;
+    public const int Died = 7;
+    public const int RemoveEntity = 8;
+    public const int Damage = 9;
+    public const int DropLoot = 10;
+    public const int Enemy = 11;
+    public const int Force = 12;
+    public const int Heal = 13;
+    public const int Health = 14;
+    public const int InitalPosition = 15;
+    public const int Input = 16;
+    public const int Inventory = 17;
+    public const int Parent = 18;
+    public const int Player = 19;
+    public const int Resource = 20;
+    public const int ToDestroy = 21;
+    public const int Tree = 22;
+    public const int View = 23;
+    public const int Wood = 24;
 
-    public const int TotalComponents = 23;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "ActualTimer",
-        "ActualTimerListener",
         "AddingSeconds",
+        "AnyActualTimerListener",
+        "AnyInventoryListener",
         "Apple",
         "Bonfire",
         "BurnedWood",
+        "Died",
+        "RemoveEntity",
         "Damage",
         "DropLoot",
         "Enemy",
@@ -50,7 +55,6 @@ public static class GameComponentsLookup {
         "InitalPosition",
         "Input",
         "Inventory",
-        "InventoryListener",
         "Parent",
         "Player",
         "Resource",
@@ -62,11 +66,14 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(ActualTimerComponent),
-        typeof(ActualTimerListenerComponent),
         typeof(AddingSecondsComponent),
+        typeof(AnyActualTimerListenerComponent),
+        typeof(AnyInventoryListenerComponent),
         typeof(AppleComponent),
         typeof(BonfireComponent),
         typeof(BurnedWoodComponent),
+        typeof(Components.DiedComponent),
+        typeof(Components.RemoveEntityComponent),
         typeof(DamageComponent),
         typeof(DropLootComponent),
         typeof(EnemyComponent),
@@ -76,7 +83,6 @@ public static class GameComponentsLookup {
         typeof(InitalPositionComponent),
         typeof(InputComponent),
         typeof(InventoryComponent),
-        typeof(InventoryListenerComponent),
         typeof(ParentComponent),
         typeof(PlayerComponent),
         typeof(ResourceComponent),

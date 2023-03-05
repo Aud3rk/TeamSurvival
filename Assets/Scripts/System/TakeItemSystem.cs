@@ -11,7 +11,7 @@ public class TakeItemSystem : IExecuteSystem
     }
     public void Execute()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E)) // проверку, что игрок помер
         {
             Vector3 point = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0);
             Ray ray = Camera.main.ScreenPointToRay(point);

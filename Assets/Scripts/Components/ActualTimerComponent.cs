@@ -1,7 +1,7 @@
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-[Event(EventTarget.Self, EventType.Added)]
+[Event(EventTarget.Any, EventType.Added)]
 [Game]
 public class ActualTimerComponent : IComponent
 {

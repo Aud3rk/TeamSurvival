@@ -1,3 +1,6 @@
+using System;
+using UI.System;
+
 namespace Survive
 {
     public class GameFeature : Feature
@@ -10,14 +13,15 @@ namespace Survive
             Add(new InitializeAppleSystem(contexts));
             Add(new InitializeTreeSystem(contexts));
             Add(new InitializeWoodSystem(contexts));
-            Add(new InventoryEventSystem(contexts));
-            Add(new ActualTimerEventSystem(contexts));
+            Add(new AnyInventoryEventSystem(contexts));
+            Add(new AnyActualTimerEventSystem(contexts));
             Add(new InitializeEnemySystem(contexts));
+            Add(new GameOverSystem(contexts));
 
             Add(new InputSystem(contexts));
             Add(new MoveSystem(contexts));
             Add(new DamageProviderSystem(contexts));
-            Add(new BuriningSystem(contexts));
+            Add(new BurningSystem(contexts));
             Add(new AddingWoodToBonfireSystem(contexts));
             Add(new TakeItemSystem(contexts));
             Add(new DestroySystem(contexts));
@@ -26,6 +30,7 @@ namespace Survive
             Add(new PlayerAttackSystem(contexts));
             Add(new HealthProviderSystem(contexts));
             Add(new AppleEatSystem(contexts));
+            Add(new UIUpdateListenerSystem(contexts));
         }
     }
 }

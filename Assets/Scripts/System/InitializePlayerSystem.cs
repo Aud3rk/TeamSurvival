@@ -31,8 +31,8 @@ public class InitializePlayerSystem : ReactiveSystem<ApplicationSurviveEntity>
 
     private void Initialize()
     {
-        var entity = _contexts.game.CreateEntity();
-        entity.isPlayer = true;
+        _contexts.game.isPlayer = true;
+        var entity = _contexts.game.playerEntity;
         entity.AddResource(_contexts.applicationSurvive.gameSetup.value.player);
         entity.AddInitalPosition(new Vector3(10, 10, 10));
         entity.AddHealth(100, 100);

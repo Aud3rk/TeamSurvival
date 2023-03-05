@@ -11,6 +11,9 @@ namespace Data
         [Space]
         [SerializeField] private GameObject _mainMenuPrefab;
         [SerializeField] private GameObject _gamePlayMenu;
+        [SerializeField] private GameObject _gameOverMenu;
+
+        public GameObject GameOverMenu => _gameOverMenu;
 
         public GameObject MainMenuPrefab => _mainMenuPrefab;
 
